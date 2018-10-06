@@ -1,12 +1,13 @@
 <template>
-<div>
-  hello management
-</div>
+  <div>
+    hello templates
+
+  </div>
 </template>
 
 <script>
   export default {
-    name: "management"
+    name: "management",
   }
 </script>
 

@@ -31,7 +31,7 @@ export const sideRoutes = [
     path: 'home',
     component: home,
     meta: {
-      icon: 'el-icon-my-home',
+      icon: 'el-icon-location',
       title: '主页'
     }
   },
@@ -40,7 +40,7 @@ export const sideRoutes = [
     path: 'management',
     component: management,
     meta: {
-      icon: 'el-icon-my-home',
+      icon: 'el-icon-menu',
       title: 'management'
     }
   }
