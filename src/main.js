@@ -15,6 +15,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueProgressBar from 'vue-progressbar'
 import vuePositionSticky from 'vue-position-sticky'
 
+import vuescroll from 'vuescroll';
+import 'vuescroll/dist/vuescroll.css';
+
 Vue.config.productionTip = false
 
 
@@ -23,6 +26,7 @@ Vue.use(ElementUI, { size: 'small' })
 Vue.use(VueProgressBar)
 Vue.use(vuePositionSticky)
 
+Vue.use(vuescroll);
 
 // 自定义
 Object.keys(components).forEach(key => {

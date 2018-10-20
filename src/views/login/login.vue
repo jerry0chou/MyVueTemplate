@@ -1,29 +1,27 @@
 <template>
   <div id="login">
     <div class="login-wrapper">
-      <div class="title">vue-bolg-template</div>
+      <el-card class="box-card">
+      <div class="title">my-vue-template</div>
       <el-form class="login-form" :model="form" @submit.native.prevent="verify">
-        <el-form-item>
-          <!-- username -->
-          <el-input v-model="form.username" placeholder="用户名" auto-complete='off'/>
-          <span class="input-icon prepend-icon">
-                        <i class="el-icon-my-user"></i>
-                    </span>
+        <el-form-item prop="username">
+          <el-input v-model="form.username">
+            <template slot="prepend">账号</template>
+          </el-input>
         </el-form-item>
-        <el-form-item>
-          <!-- password -->
-          <el-input v-model="form.password" placeholder="密码" auto-complete='off'
-                    :type="pwdWatch ? 'text' : 'password'"/>
-          <span class="input-icon prepend-icon">
-                        <i class="el-icon-my-lock"></i>
-                    </span>
-          <span class="input-icon append-icon" @click="pwdWatch = !pwdWatch">
-                        <i :class="pwdWatch ? 'el-icon-my-openEye' : 'el-icon-my-closeEye'"></i>
-                    </span>
+
+        <el-form-item prop="pass">
+          <el-input type="password" v-model="password" auto-complete="off">
+            <template slot="prepend">密码</template>
+          </el-input>
         </el-form-item>
-        <!-- submit -->
-        <el-input class="login_btn" type="submit" value="登录"/>
+
+        <el-form-item align="center">
+          <el-button type="primary" round @click="submitForm">提交</el-button>
+          <el-button type="warning" round @click="resetForm">重置</el-button>
+        </el-form-item>
       </el-form>
+      </el-card>
     </div>
 
   </div>
@@ -35,7 +33,7 @@
     {
       return {
         form: {
-          username: 'uncleLian',
+          username: 'JerryChu',
           password: '123456'
         },
         pwdWatch: false
@@ -57,15 +55,15 @@
       },
       login()
       {
-        this.$store.dispatch('GET_LOGIN_DATA', this.form).then((res) =>
-        {
-          this.$message.success('登录成功')
-          this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
-        }).catch((err) =>
-        {
-          console.log(err)
-          this.$message.error('账号密码错误')
-        })
+        // this.$store.dispatch('GET_LOGIN_DATA', this.form).then((res) =>
+        // {
+        //   //this.$message.success('登录成功')
+        //   //this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$router.push('/')
+        // }).catch((err) =>
+        // {
+        //   console.log(err)
+        //   this.$message.error('账号密码错误')
+        // })
       }
     }
   }
@@ -75,7 +73,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: #464c5b;
+    background: #ffffff;
     overflow: hidden;
     .login-wrapper {
       position: absolute;
@@ -88,7 +86,7 @@
         display: block;
         font-size: 26px;
         font-weight: 400;
-        color: #eee;
+        color: #409eff;
         margin: 0px auto 50px;
         text-align: center;
         font-weight: bold;

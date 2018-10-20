@@ -1,83 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-//import cache from '@/utils/cache'
-//import { getLogin, getUser } from '@/api'
+
 
 Vue.use(Vuex)
 
-const state = {
-  logs: [], // 错误日志
-  user: '' // 用户信息
-}
-const getters = {}
-const mutations = {
-  SET_LOGS(state, error)
-  {
-    state.logs.push(error)
-  },
-  SET_USER(state, val)
-  {
-    state.user = val
-  },
-  SET_ROLE(state, val)
-  {
-    state.user.role = val
-  },
-  SET_LOGOUT(state)
-  {
-    state.user = ''
-    //cache.removeToken()
-  }
-}
-const actions = {
-  // 获取登录数据
-  async GET_LOGIN_DATA({commit}, params)
-  {
-    // return new Promise((resolve, reject) =>
-    // {
-    //   getLogin(params).then(res =>
-    //   {
-    //     // console.log('login', res)
-    //     if (res && res.token)
-    //     {
-    //       cache.setToken(res.token)
-    //       resolve(res)
-    //     } else
-    //     {
-    //       reject(new Error('nothing login data'))
-    //     }
-    //   }).catch(err =>
-    //   {
-    //     reject(err)
-    //   })
-    // })
-  },
-  // 获取用户数据
-  async GET_USER_DATA({commit}, token)
-  {
-    // return new Promise((resolve, reject) =>
-    // {
-    //   getUser(token).then(res =>
-    //   {
-    //     // console.log('user', res)
-    //     if (res && res.code === 200 && res.data)
-    //     {
-    //       commit('SET_USER', res.data)
-    //       resolve(res.data)
-    //     } else
-    //     {
-    //       reject(new Error('nothing user data'))
-    //     }
-    //   }).catch(err =>
-    //   {
-    //     reject(err)
-    //   })
-    // })
-  }
-}
 export default new Vuex.Store({
-  state,
-  getters,
-  mutations,
-  actions
-})
+  state: {
+    count: 1
+  },
+  actions: {  // 通过 context 上下文 分发mutations
+    increment:(context,count) =>context.commit("increment",count),
+    decrement:(context,count) =>context.commit("decrement",count)
+  },
+  mutations: {
+    increment: (state,count) => state.count=state.count+count,
+    decrement: (state,count) => state.count=state.count-count
+  }
+});

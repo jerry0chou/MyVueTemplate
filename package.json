@@ -18,6 +18,7 @@
     "vue-position-sticky": "^0.2.0",
     "vue-progressbar": "^0.7.5",
     "vue-router": "^3.0.1",
+    "vuescroll": "^4.9.0-beta.5",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

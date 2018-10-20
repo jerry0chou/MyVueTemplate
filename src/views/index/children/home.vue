@@ -1,6 +1,7 @@
 <template>
   <div id="home">
     <h1>先要添加代理</h1>
+    {{this.$store.state.count}}
     <p>{{responseData}}</p>
     <button @click="sendGet">sendGet</button>
     <button @click="sendPost">sendPost</button>

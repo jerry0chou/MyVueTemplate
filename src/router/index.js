@@ -6,7 +6,10 @@ import Router from 'vue-router'
 const index = () => import('@/views/index/index')
 const home = () => import('@/views/index/children/home')
 
-const management = () => import('@/views/index/children/management')
+// 测试有权限的路由
+const commonUser = () => import('@/views/index/children/commonUser')
+const admin = () => import('@/views/index/children/admin')
+
 // login
 const login = () => import('@/views/login/login')
 // other
@@ -32,18 +35,31 @@ export const sideRoutes = [
     component: home,
     meta: {
       icon: 'el-icon-location',
-      title: '主页'
+      title: '主页',
+      role: 'user'
     }
   },
   {
-    name: 'management',
-    path: 'management',
-    component: management,
+    name: 'admin',
+    path: 'admin',
+    component: admin,
     meta: {
       icon: 'el-icon-menu',
-      title: 'management'
+      title: 'admin',
+      role: 'admin'
+    }
+  },
+  {
+    name: 'commonUser',
+    path: 'commonUser',
+    component: commonUser,
+    meta: {
+      icon: 'el-icon-menu',
+      title: 'commonUser',
+      role: 'user'
     }
   }
+
 ]
 
 export default new Router({
