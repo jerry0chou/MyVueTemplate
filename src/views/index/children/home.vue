@@ -1,255 +1,48 @@
 <template>
   <div id="home">
-    Home PageHome PageHome PageHome PageHome Page
-    Home PageHome PageHome Page
-    Home PageHome Page
-    Home Page
-
-
-
-
-
-
-
-
-    Home Page
-    Home Page
-    Home Page
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    Home Page
-    <br>
-
-  <br>
-<br>
-<br>
-    <br><br>
-    <br>
-    <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-
-
-
-
-
-
-
-
-
-
-
-    Home Page
-
-
-
-
-
-   <br>
-
-  <br>
-<br>
-<br>
-    <br><br>
-    <br>
-    <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-
-
-
-
-
-
-
-
-<
-
-    Home Page
-    Home Page
-
-
-
-
-
-   <br>
-
-  <br>
-<br>
-<br>
-    <br><br>
-    <br>
-    <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-
-
-
-
-
-
-
-
-<
-
-    Home Page
-    Home Page
-
-
-
-
-
-   <br>
-
-  <br>
-<br>
-<br>
-    <br><br>
-    <br>
-    <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-
-
-
-
-
-
-
-
-<
-
-    Home Page
-    Home Page
-
-
-
-
-
-   <br>
-
-  <br>
-<br>
-<br>
-    <br><br>
-    <br>
-    <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-
-
-
-
-
-
-
-
-<
-
-    Home Page
-    Home Page
-
-
-
-
-
-   <br>
-
-  <br>
-<br>
-<br>
-    <br><br>
-    <br>
-    <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-
-
-
-
-
-
-
-
-<
-
-    Home Page
-    Home Page
-
-
-
-
-
-   <br>
-
-  <br>
-<br>
-<br>
-    <br><br>
-    <br>
-    <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-
-
-
-
-
-
-
-
-<
-
-    Home Page
+    <h1>先要添加代理</h1>
+    <p>{{responseData}}</p>
+    <button @click="sendGet">sendGet</button>
+    <button @click="sendPost">sendPost</button>
   </div>
 </template>
 <script>
+  import http from '@/api/http'
+
   export default {
     name: 'home',
     data()
     {
-      return {}
+      return {
+        responseData: ''
+      }
     },
     mounted()
     {
     },
-    methods: {}
+    methods: {
+      async sendGet()
+      {
+        let params = {}
+        const res = await http.get('/hello', params)
+        if (res.data)
+        {
+          this.responseData = res.data
+        }
+      },
+      async sendPost()
+      {
+        let data = {
+          username: "jerry",
+          password: "123"
+        }
+        const res = await http.post('/postuser', data)
+        if (res.data)
+        {
+          this.responseData = res.data
+        }
+      },
+    }
   }
 </script>
 <style lang='stylus'>

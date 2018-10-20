@@ -1,7 +1,6 @@
 <template>
   <div>
     hello templates
-
   </div>
 </template>
 
