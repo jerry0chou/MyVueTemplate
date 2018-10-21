@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-// const view = () => import('@/layout/view')
+const view = () => import('@/layout/view')
 // index
 const index = () => import('@/views/index/index')
 const home = () => import('@/views/index/children/home')
@@ -9,6 +9,9 @@ const home = () => import('@/views/index/children/home')
 // 测试有权限的路由
 const commonUser = () => import('@/views/index/children/commonUser')
 const admin = () => import('@/views/index/children/admin')
+
+// 二级菜单
+const example = () => import('@/views/index/children/examples.vue')
 
 // login
 const login = () => import('@/views/login/login')
@@ -58,6 +61,30 @@ export const sideRoutes = [
       title: 'commonUser',
       role: 'user'
     }
+  },
+  {
+    name: 'manyMenu',
+    path: 'manyMenu',
+    component: view,
+    redirect: '/index/manyMenu/example',
+    meta: {
+      icon: 'el-icon-menu',
+      title: '多级菜单',
+      role: 'user'
+      //open: true
+    },
+    children: [
+      {
+        name: 'example',
+        path: 'example',
+        component: example,
+        meta: {
+          icon: 'el-icon-my-ravelry',
+          title: '示例',
+          role: 'user'
+        }
+      },
+    ]
   }
 
 ]

@@ -3,14 +3,14 @@
     <!--<vue-scroll :ops="ops">-->
     <el-aside id="side" width="180px">
       <!-- menu -->
-
-        <el-menu :default-active="$route.name" :default-openeds="defaultOpeneds" background-color="#304156"
-                 text-color="#bfcbd9" active-text-color="#42b983">
-          <my-side-item :json="filterRoutes"></my-side-item>
-        </el-menu>
-
+      <vue-scroll >
+      <el-menu :default-active="$route.name" :default-openeds="defaultOpeneds" background-color="#304156"
+               text-color="#bfcbd9" active-text-color="#42b983">
+        <my-side-item :json="filterRoutes"></my-side-item>
+      </el-menu>
+      </vue-scroll>
     </el-aside>
-      <!--</vue-scroll>-->
+    <!--</vue-scroll>-->
   </vue-position-sticky>
 </template>
 <script>
@@ -85,6 +85,7 @@
     flex-direction: column;
     height: 100%;
     user-select: none;
+    background-color #304156;
     .el-menu {
       flex-grow: 1;
       padding-bottom: 15px;
